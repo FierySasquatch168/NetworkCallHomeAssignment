@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class FlowCoordinator: MainCoordinator & CoordinatorProtocol {
+protocol CoordinatorProtocol: AnyObject {
+    func start()
+}
+
+final class FlowCoordinator: CoordinatorProtocol {
     
     private let router: Routable
     private let screenFactory: ScreenFactoryProtocol

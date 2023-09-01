@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CoordinatorFactoryProtocol {
-    func createFlowCoordinator(with router: Routable) -> MainCoordinator & CoordinatorProtocol
+    func createFlowCoordinator(with router: Routable) -> CoordinatorProtocol
 }
 
 final class CoordinatorFactory: CoordinatorFactoryProtocol {
@@ -18,7 +18,7 @@ final class CoordinatorFactory: CoordinatorFactoryProtocol {
     private let layoutManager: LayoutManagerProtocol = LayoutManager()
     private let dataSourceManager: DataSourceProtocol = DataSourceManager()
     
-    func createFlowCoordinator(with router: Routable) -> MainCoordinator & CoordinatorProtocol {
+    func createFlowCoordinator(with router: Routable) -> CoordinatorProtocol {
         return FlowCoordinator(router: router,
                                screenFactory: screenFactory,
                                networkService: networkService,

@@ -10,9 +10,9 @@ import UIKit
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private let coordinatorFactory: CoordinatorFactoryProtocol = CoordinatorFactory()
     lazy private var router: Routable = Router(routerDelegate: self)
-    lazy private var coordinatorFactory: CoordinatorFactoryProtocol = CoordinatorFactory()
     lazy private var coordinator = coordinatorFactory.createFlowCoordinator(with: router)
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
