@@ -40,7 +40,6 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupConstraints()
-        createDataSource()
         bind()
     }
     
@@ -48,7 +47,7 @@ final class MainViewController: UIViewController {
         viewModel.visibleObjectsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] numbersModel in
-                self?.updateDataSource(numbersModel)
+                self?.createDataSource(numbersModel)
             }
             .store(in: &cancellables)
 
@@ -57,14 +56,11 @@ final class MainViewController: UIViewController {
 
 // MARK: - Ext DataSource
 private extension MainViewController {
-    func createDataSource() {
+    func createDataSource(_ model: [VisibleNumberModel]) {
         dataSourceManager.createDataSource(with: collectionView,
-                                           from: viewModel.visibleObjectsPublisher.value)
+                                           from: model)
     }
     
-    func updateDataSource(_ model: [VisibleNumberModel]) {
-        dataSourceManager.updateCollection(with: model)
-    }
 }
 
 // MARK: - Ext Consttraints

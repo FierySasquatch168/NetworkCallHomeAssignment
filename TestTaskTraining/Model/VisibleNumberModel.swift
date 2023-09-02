@@ -9,5 +9,6 @@ import UIKit
 
 struct VisibleNumberModel: Hashable {
     let number: Int
-    let appearence: CustomViewButton.Appearance
+    let height: CGFloat
+    let color: String
 }

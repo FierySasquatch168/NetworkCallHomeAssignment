@@ -58,10 +58,12 @@ private extension MainViewModel {
 private extension MainViewModel {
     func generateVisibleNumberModel(_ model: [Int]) -> [VisibleNumberModel] {
         model.map { number in
-            let appearence: CustomViewButton.Appearance
-            appearence = !model.contains(-number) || number == 0 ? .orange : .red
-            
-            return VisibleNumberModel(number: number, appearence: appearence)
+            return isOrange(model: model, number: number) ?
+            VisibleNumberModel(number: number, height: 50, color: K.hexOrange) : VisibleNumberModel(number: number, height: 100, color: K.hexRed)
         }
+    }
+    
+    func isOrange(model: [Int], number: Int) -> Bool {
+        !model.contains(-number) || number == 0
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 protocol DataSourceProtocol {
     func createDataSource(with collectionView: UICollectionView, from data: [VisibleNumberModel])
-    func updateCollection(with data: [VisibleNumberModel])
 }
 
 final class DataSourceManager {
@@ -27,11 +26,6 @@ extension DataSourceManager: DataSourceProtocol {
         
         dataSource?.apply(createSnapshot(from: data))
     }
-    
-    func updateCollection(with data: [VisibleNumberModel]) {
-        dataSource?.apply(createSnapshot(from: data), animatingDifferences: true)
-    }
-    
 }
 
 // MARK: - Ext Cell

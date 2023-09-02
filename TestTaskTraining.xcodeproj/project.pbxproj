@@ -32,7 +32,6 @@
 		3756D4A62AA218070081E08C /* RequestCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756D4A52AA218070081E08C /* RequestCreator.swift */; };
 		3756D4A82AA22B020081E08C /* VisibleNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756D4A72AA22B020081E08C /* VisibleNumberModel.swift */; };
 		3756D4AA2AA238A90081E08C /* ColorToHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756D4A92AA238A90081E08C /* ColorToHex.swift */; };
-		3756D4AD2AA23C830081E08C /* CustomViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756D4AC2AA23C830081E08C /* CustomViewButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		3756D4A52AA218070081E08C /* RequestCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCreator.swift; sourceTree = "<group>"; };
 		3756D4A72AA22B020081E08C /* VisibleNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibleNumberModel.swift; sourceTree = "<group>"; };
 		3756D4A92AA238A90081E08C /* ColorToHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToHex.swift; sourceTree = "<group>"; };
-		3756D4AC2AA23C830081E08C /* CustomViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +160,6 @@
 		3756D4792AA1F74F0081E08C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3756D4AB2AA23C750081E08C /* CustomViews */,
 				3756D49C2AA204400081E08C /* Constants */,
 				3756D47A2AA1F7560081E08C /* Extensions */,
 			);
@@ -263,14 +260,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		3756D4AB2AA23C750081E08C /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				3756D4AC2AA23C830081E08C /* CustomViewButton.swift */,
-			);
-			path = CustomViews;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3756D4AD2AA23C830081E08C /* CustomViewButton.swift in Sources */,
 				3756D4722AA1F6470081E08C /* RouterDelegate.swift in Sources */,
 				3756D49E2AA2044C0081E08C /* K.swift in Sources */,
 				3756D48F2AA1FE680081E08C /* LayoutManager.swift in Sources */,

@@ -14,17 +14,15 @@ final class NumberCollectionCell: UICollectionViewCell {
         }
     }
     
-    private var numberButton: CustomViewButton? {
-        didSet {
-            setupButton()
-        }
-    }
+    private var heightConstraint: NSLayoutConstraint?
+        
+    private lazy var numberButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
     
     override func prepareForReuse() {
-        super.prepareForReuse()
-        numberButton?.removeFromSuperview()
-        numberButton = nil
-        viewModel = nil
+        heightConstraint?.isActive = false
     }
 }
 
@@ -32,22 +30,26 @@ final class NumberCollectionCell: UICollectionViewCell {
 private extension NumberCollectionCell {
     func bind() {
         viewModel?.$number
-            .sink(receiveValue: { [weak self] visibleNumberModel in
-                self?.createButton(visibleNumberModel)
+            .sink(receiveValue: { [weak self] model in
+                self?.setupButton(model)
+                self?.addButtonToView(model)
             }).cancel()
     }
 }
 
-// MARK: - Button setup
+// MARK: - UI setup
 private extension NumberCollectionCell {
-    func createButton(_ model: VisibleNumberModel) {
-        numberButton = CustomViewButton(title: model.number, appearance: model.appearence)
+    func setupButton(_ model: VisibleNumberModel) {
+        numberButton.setTitle("\(model.number)", for: .normal)
+        numberButton.backgroundColor = .init(hexString: model.color)
     }
     
-    func setupButton() {
-        guard let numberButton else { return }
+    func addButtonToView(_ model: VisibleNumberModel) {
         addSubview(numberButton)
         numberButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        heightConstraint = numberButton.heightAnchor.constraint(equalToConstant: model.height)
+        heightConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
             numberButton.centerYAnchor.constraint(equalTo: centerYAnchor),
