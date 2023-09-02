@@ -17,9 +17,10 @@ struct BasicNetworkService {
     private let session: URLSession
     private let decoder: JSONDecoder
 
-    init() {
-        self.session = URLSession(configuration: .default)
-        self.decoder = JSONDecoder()
+    init(session: URLSession = URLSession(configuration: .default),
+         decoder: JSONDecoder = JSONDecoder()) {
+        self.session = session
+        self.decoder = decoder
     }
 }
 
